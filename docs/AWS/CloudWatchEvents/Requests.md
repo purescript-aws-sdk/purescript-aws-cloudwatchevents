@@ -3,7 +3,7 @@
 #### `deleteRule`
 
 ``` purescript
-deleteRule :: forall eff. Service -> DeleteRuleRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteRule :: forall eff. Service -> DeleteRuleRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the specified rule.</p> <p>You must remove all targets from a rule using <a>RemoveTargets</a> before you can delete the rule.</p> <p>When you delete a rule, incoming events might continue to match to the deleted rule. Please allow a short period of time for changes to take effect.</p>
@@ -27,7 +27,7 @@ describeRule :: forall eff. Service -> DescribeRuleRequest -> Aff (exception :: 
 #### `disableRule`
 
 ``` purescript
-disableRule :: forall eff. Service -> DisableRuleRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+disableRule :: forall eff. Service -> DisableRuleRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Disables the specified rule. A disabled rule won't match any events, and won't self-trigger if it has a schedule expression.</p> <p>When you disable a rule, incoming events might continue to match to the disabled rule. Please allow a short period of time for changes to take effect.</p>
@@ -35,7 +35,7 @@ disableRule :: forall eff. Service -> DisableRuleRequest -> Aff (exception :: EX
 #### `enableRule`
 
 ``` purescript
-enableRule :: forall eff. Service -> EnableRuleRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+enableRule :: forall eff. Service -> EnableRuleRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Enables the specified rule. If the rule does not exist, the operation fails.</p> <p>When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.</p>
@@ -75,7 +75,7 @@ putEvents :: forall eff. Service -> PutEventsRequest -> Aff (exception :: EXCEPT
 #### `putPermission`
 
 ``` purescript
-putPermission :: forall eff. Service -> PutPermissionRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+putPermission :: forall eff. Service -> PutPermissionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Running <code>PutPermission</code> permits the specified AWS account to put events to your account's default <i>event bus</i>. CloudWatch Events rules in your account are triggered by these events arriving to your default event bus. </p> <p>For another account to send events to your account, that external account must have a CloudWatch Events rule with your account's default event bus as a target.</p> <p>To enable multiple AWS accounts to put events to your default event bus, run <code>PutPermission</code> once for each of these accounts.</p> <p>The permission policy on the default event bus cannot exceed 10KB in size.</p>
@@ -99,7 +99,7 @@ putTargets :: forall eff. Service -> PutTargetsRequest -> Aff (exception :: EXCE
 #### `removePermission`
 
 ``` purescript
-removePermission :: forall eff. Service -> RemovePermissionRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+removePermission :: forall eff. Service -> RemovePermissionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Revokes the permission of another AWS account to be able to put events to your default event bus. Specify the account to revoke by the <code>StatementId</code> value that you associated with the account when you granted it permission with <code>PutPermission</code>. You can find the <code>StatementId</code> by using <a>DescribeEventBus</a>.</p>

@@ -42,7 +42,7 @@ Encode Arn
 
 ``` purescript
 newtype BatchArrayProperties
-  = BatchArrayProperties { "Size" :: NullOrUndefined (Int) }
+  = BatchArrayProperties { "Size" :: Maybe (Int) }
 ```
 
 <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.</p>
@@ -67,7 +67,7 @@ Constructs BatchArrayProperties from required parameters
 #### `newBatchArrayProperties'`
 
 ``` purescript
-newBatchArrayProperties' :: ({ "Size" :: NullOrUndefined (Int) } -> { "Size" :: NullOrUndefined (Int) }) -> BatchArrayProperties
+newBatchArrayProperties' :: ({ "Size" :: Maybe (Int) } -> { "Size" :: Maybe (Int) }) -> BatchArrayProperties
 ```
 
 Constructs BatchArrayProperties's fields from required parameters
@@ -76,7 +76,7 @@ Constructs BatchArrayProperties's fields from required parameters
 
 ``` purescript
 newtype BatchParameters
-  = BatchParameters { "JobDefinition" :: String, "JobName" :: String, "ArrayProperties" :: NullOrUndefined (BatchArrayProperties), "RetryStrategy" :: NullOrUndefined (BatchRetryStrategy) }
+  = BatchParameters { "JobDefinition" :: String, "JobName" :: String, "ArrayProperties" :: Maybe (BatchArrayProperties), "RetryStrategy" :: Maybe (BatchRetryStrategy) }
 ```
 
 <p>The custom parameters to be used when the target is an AWS Batch job.</p>
@@ -101,7 +101,7 @@ Constructs BatchParameters from required parameters
 #### `newBatchParameters'`
 
 ``` purescript
-newBatchParameters' :: String -> String -> ({ "JobDefinition" :: String, "JobName" :: String, "ArrayProperties" :: NullOrUndefined (BatchArrayProperties), "RetryStrategy" :: NullOrUndefined (BatchRetryStrategy) } -> { "JobDefinition" :: String, "JobName" :: String, "ArrayProperties" :: NullOrUndefined (BatchArrayProperties), "RetryStrategy" :: NullOrUndefined (BatchRetryStrategy) }) -> BatchParameters
+newBatchParameters' :: String -> String -> ({ "JobDefinition" :: String, "JobName" :: String, "ArrayProperties" :: Maybe (BatchArrayProperties), "RetryStrategy" :: Maybe (BatchRetryStrategy) } -> { "JobDefinition" :: String, "JobName" :: String, "ArrayProperties" :: Maybe (BatchArrayProperties), "RetryStrategy" :: Maybe (BatchRetryStrategy) }) -> BatchParameters
 ```
 
 Constructs BatchParameters's fields from required parameters
@@ -110,7 +110,7 @@ Constructs BatchParameters's fields from required parameters
 
 ``` purescript
 newtype BatchRetryStrategy
-  = BatchRetryStrategy { "Attempts" :: NullOrUndefined (Int) }
+  = BatchRetryStrategy { "Attempts" :: Maybe (Int) }
 ```
 
 <p>The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.</p>
@@ -135,7 +135,7 @@ Constructs BatchRetryStrategy from required parameters
 #### `newBatchRetryStrategy'`
 
 ``` purescript
-newBatchRetryStrategy' :: ({ "Attempts" :: NullOrUndefined (Int) } -> { "Attempts" :: NullOrUndefined (Int) }) -> BatchRetryStrategy
+newBatchRetryStrategy' :: ({ "Attempts" :: Maybe (Int) } -> { "Attempts" :: Maybe (Int) }) -> BatchRetryStrategy
 ```
 
 Constructs BatchRetryStrategy's fields from required parameters
@@ -210,7 +210,7 @@ Encode DescribeEventBusRequest
 
 ``` purescript
 newtype DescribeEventBusResponse
-  = DescribeEventBusResponse { "Name" :: NullOrUndefined (String), "Arn" :: NullOrUndefined (String), "Policy" :: NullOrUndefined (String) }
+  = DescribeEventBusResponse { "Name" :: Maybe (String), "Arn" :: Maybe (String), "Policy" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -233,7 +233,7 @@ Constructs DescribeEventBusResponse from required parameters
 #### `newDescribeEventBusResponse'`
 
 ``` purescript
-newDescribeEventBusResponse' :: ({ "Name" :: NullOrUndefined (String), "Arn" :: NullOrUndefined (String), "Policy" :: NullOrUndefined (String) } -> { "Name" :: NullOrUndefined (String), "Arn" :: NullOrUndefined (String), "Policy" :: NullOrUndefined (String) }) -> DescribeEventBusResponse
+newDescribeEventBusResponse' :: ({ "Name" :: Maybe (String), "Arn" :: Maybe (String), "Policy" :: Maybe (String) } -> { "Name" :: Maybe (String), "Arn" :: Maybe (String), "Policy" :: Maybe (String) }) -> DescribeEventBusResponse
 ```
 
 Constructs DescribeEventBusResponse's fields from required parameters
@@ -274,7 +274,7 @@ Constructs DescribeRuleRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeRuleResponse
-  = DescribeRuleResponse { "Name" :: NullOrUndefined (RuleName), "Arn" :: NullOrUndefined (RuleArn), "EventPattern" :: NullOrUndefined (EventPattern), "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "RoleArn" :: NullOrUndefined (RoleArn) }
+  = DescribeRuleResponse { "Name" :: Maybe (RuleName), "Arn" :: Maybe (RuleArn), "EventPattern" :: Maybe (EventPattern), "ScheduleExpression" :: Maybe (ScheduleExpression), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "RoleArn" :: Maybe (RoleArn) }
 ```
 
 ##### Instances
@@ -297,7 +297,7 @@ Constructs DescribeRuleResponse from required parameters
 #### `newDescribeRuleResponse'`
 
 ``` purescript
-newDescribeRuleResponse' :: ({ "Name" :: NullOrUndefined (RuleName), "Arn" :: NullOrUndefined (RuleArn), "EventPattern" :: NullOrUndefined (EventPattern), "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "RoleArn" :: NullOrUndefined (RoleArn) } -> { "Name" :: NullOrUndefined (RuleName), "Arn" :: NullOrUndefined (RuleArn), "EventPattern" :: NullOrUndefined (EventPattern), "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "RoleArn" :: NullOrUndefined (RoleArn) }) -> DescribeRuleResponse
+newDescribeRuleResponse' :: ({ "Name" :: Maybe (RuleName), "Arn" :: Maybe (RuleArn), "EventPattern" :: Maybe (EventPattern), "ScheduleExpression" :: Maybe (ScheduleExpression), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "RoleArn" :: Maybe (RoleArn) } -> { "Name" :: Maybe (RuleName), "Arn" :: Maybe (RuleArn), "EventPattern" :: Maybe (EventPattern), "ScheduleExpression" :: Maybe (ScheduleExpression), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "RoleArn" :: Maybe (RoleArn) }) -> DescribeRuleResponse
 ```
 
 Constructs DescribeRuleResponse's fields from required parameters
@@ -338,7 +338,7 @@ Constructs DisableRuleRequest's fields from required parameters
 
 ``` purescript
 newtype EcsParameters
-  = EcsParameters { "TaskDefinitionArn" :: Arn, "TaskCount" :: NullOrUndefined (LimitMin1) }
+  = EcsParameters { "TaskDefinitionArn" :: Arn, "TaskCount" :: Maybe (LimitMin1) }
 ```
 
 <p>The custom parameters to be used when the target is an Amazon ECS cluster.</p>
@@ -363,7 +363,7 @@ Constructs EcsParameters from required parameters
 #### `newEcsParameters'`
 
 ``` purescript
-newEcsParameters' :: Arn -> ({ "TaskDefinitionArn" :: Arn, "TaskCount" :: NullOrUndefined (LimitMin1) } -> { "TaskDefinitionArn" :: Arn, "TaskCount" :: NullOrUndefined (LimitMin1) }) -> EcsParameters
+newEcsParameters' :: Arn -> ({ "TaskDefinitionArn" :: Arn, "TaskCount" :: Maybe (LimitMin1) } -> { "TaskDefinitionArn" :: Arn, "TaskCount" :: Maybe (LimitMin1) }) -> EcsParameters
 ```
 
 Constructs EcsParameters's fields from required parameters
@@ -516,7 +516,7 @@ Encode EventTime
 
 ``` purescript
 newtype InputTransformer
-  = InputTransformer { "InputPathsMap" :: NullOrUndefined (TransformerPaths), "InputTemplate" :: TransformerInput }
+  = InputTransformer { "InputPathsMap" :: Maybe (TransformerPaths), "InputTemplate" :: TransformerInput }
 ```
 
 <p>Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.</p>
@@ -541,7 +541,7 @@ Constructs InputTransformer from required parameters
 #### `newInputTransformer'`
 
 ``` purescript
-newInputTransformer' :: TransformerInput -> ({ "InputPathsMap" :: NullOrUndefined (TransformerPaths), "InputTemplate" :: TransformerInput } -> { "InputPathsMap" :: NullOrUndefined (TransformerPaths), "InputTemplate" :: TransformerInput }) -> InputTransformer
+newInputTransformer' :: TransformerInput -> ({ "InputPathsMap" :: Maybe (TransformerPaths), "InputTemplate" :: TransformerInput } -> { "InputPathsMap" :: Maybe (TransformerPaths), "InputTemplate" :: TransformerInput }) -> InputTransformer
 ```
 
 Constructs InputTransformer's fields from required parameters
@@ -686,7 +686,7 @@ Encode LimitMin1
 
 ``` purescript
 newtype ListRuleNamesByTargetRequest
-  = ListRuleNamesByTargetRequest { "TargetArn" :: TargetArn, "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) }
+  = ListRuleNamesByTargetRequest { "TargetArn" :: TargetArn, "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) }
 ```
 
 ##### Instances
@@ -709,7 +709,7 @@ Constructs ListRuleNamesByTargetRequest from required parameters
 #### `newListRuleNamesByTargetRequest'`
 
 ``` purescript
-newListRuleNamesByTargetRequest' :: TargetArn -> ({ "TargetArn" :: TargetArn, "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) } -> { "TargetArn" :: TargetArn, "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) }) -> ListRuleNamesByTargetRequest
+newListRuleNamesByTargetRequest' :: TargetArn -> ({ "TargetArn" :: TargetArn, "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) } -> { "TargetArn" :: TargetArn, "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) }) -> ListRuleNamesByTargetRequest
 ```
 
 Constructs ListRuleNamesByTargetRequest's fields from required parameters
@@ -718,7 +718,7 @@ Constructs ListRuleNamesByTargetRequest's fields from required parameters
 
 ``` purescript
 newtype ListRuleNamesByTargetResponse
-  = ListRuleNamesByTargetResponse { "RuleNames" :: NullOrUndefined (RuleNameList), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListRuleNamesByTargetResponse { "RuleNames" :: Maybe (RuleNameList), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -741,7 +741,7 @@ Constructs ListRuleNamesByTargetResponse from required parameters
 #### `newListRuleNamesByTargetResponse'`
 
 ``` purescript
-newListRuleNamesByTargetResponse' :: ({ "RuleNames" :: NullOrUndefined (RuleNameList), "NextToken" :: NullOrUndefined (NextToken) } -> { "RuleNames" :: NullOrUndefined (RuleNameList), "NextToken" :: NullOrUndefined (NextToken) }) -> ListRuleNamesByTargetResponse
+newListRuleNamesByTargetResponse' :: ({ "RuleNames" :: Maybe (RuleNameList), "NextToken" :: Maybe (NextToken) } -> { "RuleNames" :: Maybe (RuleNameList), "NextToken" :: Maybe (NextToken) }) -> ListRuleNamesByTargetResponse
 ```
 
 Constructs ListRuleNamesByTargetResponse's fields from required parameters
@@ -750,7 +750,7 @@ Constructs ListRuleNamesByTargetResponse's fields from required parameters
 
 ``` purescript
 newtype ListRulesRequest
-  = ListRulesRequest { "NamePrefix" :: NullOrUndefined (RuleName), "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) }
+  = ListRulesRequest { "NamePrefix" :: Maybe (RuleName), "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) }
 ```
 
 ##### Instances
@@ -773,7 +773,7 @@ Constructs ListRulesRequest from required parameters
 #### `newListRulesRequest'`
 
 ``` purescript
-newListRulesRequest' :: ({ "NamePrefix" :: NullOrUndefined (RuleName), "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) } -> { "NamePrefix" :: NullOrUndefined (RuleName), "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) }) -> ListRulesRequest
+newListRulesRequest' :: ({ "NamePrefix" :: Maybe (RuleName), "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) } -> { "NamePrefix" :: Maybe (RuleName), "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) }) -> ListRulesRequest
 ```
 
 Constructs ListRulesRequest's fields from required parameters
@@ -782,7 +782,7 @@ Constructs ListRulesRequest's fields from required parameters
 
 ``` purescript
 newtype ListRulesResponse
-  = ListRulesResponse { "Rules" :: NullOrUndefined (RuleResponseList), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListRulesResponse { "Rules" :: Maybe (RuleResponseList), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -805,7 +805,7 @@ Constructs ListRulesResponse from required parameters
 #### `newListRulesResponse'`
 
 ``` purescript
-newListRulesResponse' :: ({ "Rules" :: NullOrUndefined (RuleResponseList), "NextToken" :: NullOrUndefined (NextToken) } -> { "Rules" :: NullOrUndefined (RuleResponseList), "NextToken" :: NullOrUndefined (NextToken) }) -> ListRulesResponse
+newListRulesResponse' :: ({ "Rules" :: Maybe (RuleResponseList), "NextToken" :: Maybe (NextToken) } -> { "Rules" :: Maybe (RuleResponseList), "NextToken" :: Maybe (NextToken) }) -> ListRulesResponse
 ```
 
 Constructs ListRulesResponse's fields from required parameters
@@ -814,7 +814,7 @@ Constructs ListRulesResponse's fields from required parameters
 
 ``` purescript
 newtype ListTargetsByRuleRequest
-  = ListTargetsByRuleRequest { "Rule" :: RuleName, "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) }
+  = ListTargetsByRuleRequest { "Rule" :: RuleName, "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) }
 ```
 
 ##### Instances
@@ -837,7 +837,7 @@ Constructs ListTargetsByRuleRequest from required parameters
 #### `newListTargetsByRuleRequest'`
 
 ``` purescript
-newListTargetsByRuleRequest' :: RuleName -> ({ "Rule" :: RuleName, "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) } -> { "Rule" :: RuleName, "NextToken" :: NullOrUndefined (NextToken), "Limit" :: NullOrUndefined (LimitMax100) }) -> ListTargetsByRuleRequest
+newListTargetsByRuleRequest' :: RuleName -> ({ "Rule" :: RuleName, "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) } -> { "Rule" :: RuleName, "NextToken" :: Maybe (NextToken), "Limit" :: Maybe (LimitMax100) }) -> ListTargetsByRuleRequest
 ```
 
 Constructs ListTargetsByRuleRequest's fields from required parameters
@@ -846,7 +846,7 @@ Constructs ListTargetsByRuleRequest's fields from required parameters
 
 ``` purescript
 newtype ListTargetsByRuleResponse
-  = ListTargetsByRuleResponse { "Targets" :: NullOrUndefined (TargetList), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListTargetsByRuleResponse { "Targets" :: Maybe (TargetList), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -869,7 +869,7 @@ Constructs ListTargetsByRuleResponse from required parameters
 #### `newListTargetsByRuleResponse'`
 
 ``` purescript
-newListTargetsByRuleResponse' :: ({ "Targets" :: NullOrUndefined (TargetList), "NextToken" :: NullOrUndefined (NextToken) } -> { "Targets" :: NullOrUndefined (TargetList), "NextToken" :: NullOrUndefined (NextToken) }) -> ListTargetsByRuleResponse
+newListTargetsByRuleResponse' :: ({ "Targets" :: Maybe (TargetList), "NextToken" :: Maybe (NextToken) } -> { "Targets" :: Maybe (TargetList), "NextToken" :: Maybe (NextToken) }) -> ListTargetsByRuleResponse
 ```
 
 Constructs ListTargetsByRuleResponse's fields from required parameters
@@ -960,7 +960,7 @@ Constructs PutEventsRequest's fields from required parameters
 
 ``` purescript
 newtype PutEventsRequestEntry
-  = PutEventsRequestEntry { "Time" :: NullOrUndefined (EventTime), "Source" :: NullOrUndefined (String), "Resources" :: NullOrUndefined (EventResourceList), "DetailType" :: NullOrUndefined (String), "Detail" :: NullOrUndefined (String) }
+  = PutEventsRequestEntry { "Time" :: Maybe (EventTime), "Source" :: Maybe (String), "Resources" :: Maybe (EventResourceList), "DetailType" :: Maybe (String), "Detail" :: Maybe (String) }
 ```
 
 <p>Represents an event to be submitted.</p>
@@ -985,7 +985,7 @@ Constructs PutEventsRequestEntry from required parameters
 #### `newPutEventsRequestEntry'`
 
 ``` purescript
-newPutEventsRequestEntry' :: ({ "Time" :: NullOrUndefined (EventTime), "Source" :: NullOrUndefined (String), "Resources" :: NullOrUndefined (EventResourceList), "DetailType" :: NullOrUndefined (String), "Detail" :: NullOrUndefined (String) } -> { "Time" :: NullOrUndefined (EventTime), "Source" :: NullOrUndefined (String), "Resources" :: NullOrUndefined (EventResourceList), "DetailType" :: NullOrUndefined (String), "Detail" :: NullOrUndefined (String) }) -> PutEventsRequestEntry
+newPutEventsRequestEntry' :: ({ "Time" :: Maybe (EventTime), "Source" :: Maybe (String), "Resources" :: Maybe (EventResourceList), "DetailType" :: Maybe (String), "Detail" :: Maybe (String) } -> { "Time" :: Maybe (EventTime), "Source" :: Maybe (String), "Resources" :: Maybe (EventResourceList), "DetailType" :: Maybe (String), "Detail" :: Maybe (String) }) -> PutEventsRequestEntry
 ```
 
 Constructs PutEventsRequestEntry's fields from required parameters
@@ -1010,7 +1010,7 @@ Encode PutEventsRequestEntryList
 
 ``` purescript
 newtype PutEventsResponse
-  = PutEventsResponse { "FailedEntryCount" :: NullOrUndefined (Int), "Entries" :: NullOrUndefined (PutEventsResultEntryList) }
+  = PutEventsResponse { "FailedEntryCount" :: Maybe (Int), "Entries" :: Maybe (PutEventsResultEntryList) }
 ```
 
 ##### Instances
@@ -1033,7 +1033,7 @@ Constructs PutEventsResponse from required parameters
 #### `newPutEventsResponse'`
 
 ``` purescript
-newPutEventsResponse' :: ({ "FailedEntryCount" :: NullOrUndefined (Int), "Entries" :: NullOrUndefined (PutEventsResultEntryList) } -> { "FailedEntryCount" :: NullOrUndefined (Int), "Entries" :: NullOrUndefined (PutEventsResultEntryList) }) -> PutEventsResponse
+newPutEventsResponse' :: ({ "FailedEntryCount" :: Maybe (Int), "Entries" :: Maybe (PutEventsResultEntryList) } -> { "FailedEntryCount" :: Maybe (Int), "Entries" :: Maybe (PutEventsResultEntryList) }) -> PutEventsResponse
 ```
 
 Constructs PutEventsResponse's fields from required parameters
@@ -1042,7 +1042,7 @@ Constructs PutEventsResponse's fields from required parameters
 
 ``` purescript
 newtype PutEventsResultEntry
-  = PutEventsResultEntry { "EventId" :: NullOrUndefined (EventId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }
+  = PutEventsResultEntry { "EventId" :: Maybe (EventId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }
 ```
 
 <p>Represents an event that failed to be submitted.</p>
@@ -1067,7 +1067,7 @@ Constructs PutEventsResultEntry from required parameters
 #### `newPutEventsResultEntry'`
 
 ``` purescript
-newPutEventsResultEntry' :: ({ "EventId" :: NullOrUndefined (EventId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> { "EventId" :: NullOrUndefined (EventId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }) -> PutEventsResultEntry
+newPutEventsResultEntry' :: ({ "EventId" :: Maybe (EventId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) } -> { "EventId" :: Maybe (EventId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }) -> PutEventsResultEntry
 ```
 
 Constructs PutEventsResultEntry's fields from required parameters
@@ -1124,7 +1124,7 @@ Constructs PutPermissionRequest's fields from required parameters
 
 ``` purescript
 newtype PutRuleRequest
-  = PutRuleRequest { "Name" :: RuleName, "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "EventPattern" :: NullOrUndefined (EventPattern), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "RoleArn" :: NullOrUndefined (RoleArn) }
+  = PutRuleRequest { "Name" :: RuleName, "ScheduleExpression" :: Maybe (ScheduleExpression), "EventPattern" :: Maybe (EventPattern), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "RoleArn" :: Maybe (RoleArn) }
 ```
 
 ##### Instances
@@ -1147,7 +1147,7 @@ Constructs PutRuleRequest from required parameters
 #### `newPutRuleRequest'`
 
 ``` purescript
-newPutRuleRequest' :: RuleName -> ({ "Name" :: RuleName, "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "EventPattern" :: NullOrUndefined (EventPattern), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "RoleArn" :: NullOrUndefined (RoleArn) } -> { "Name" :: RuleName, "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "EventPattern" :: NullOrUndefined (EventPattern), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "RoleArn" :: NullOrUndefined (RoleArn) }) -> PutRuleRequest
+newPutRuleRequest' :: RuleName -> ({ "Name" :: RuleName, "ScheduleExpression" :: Maybe (ScheduleExpression), "EventPattern" :: Maybe (EventPattern), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "RoleArn" :: Maybe (RoleArn) } -> { "Name" :: RuleName, "ScheduleExpression" :: Maybe (ScheduleExpression), "EventPattern" :: Maybe (EventPattern), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "RoleArn" :: Maybe (RoleArn) }) -> PutRuleRequest
 ```
 
 Constructs PutRuleRequest's fields from required parameters
@@ -1156,7 +1156,7 @@ Constructs PutRuleRequest's fields from required parameters
 
 ``` purescript
 newtype PutRuleResponse
-  = PutRuleResponse { "RuleArn" :: NullOrUndefined (RuleArn) }
+  = PutRuleResponse { "RuleArn" :: Maybe (RuleArn) }
 ```
 
 ##### Instances
@@ -1179,7 +1179,7 @@ Constructs PutRuleResponse from required parameters
 #### `newPutRuleResponse'`
 
 ``` purescript
-newPutRuleResponse' :: ({ "RuleArn" :: NullOrUndefined (RuleArn) } -> { "RuleArn" :: NullOrUndefined (RuleArn) }) -> PutRuleResponse
+newPutRuleResponse' :: ({ "RuleArn" :: Maybe (RuleArn) } -> { "RuleArn" :: Maybe (RuleArn) }) -> PutRuleResponse
 ```
 
 Constructs PutRuleResponse's fields from required parameters
@@ -1220,7 +1220,7 @@ Constructs PutTargetsRequest's fields from required parameters
 
 ``` purescript
 newtype PutTargetsResponse
-  = PutTargetsResponse { "FailedEntryCount" :: NullOrUndefined (Int), "FailedEntries" :: NullOrUndefined (PutTargetsResultEntryList) }
+  = PutTargetsResponse { "FailedEntryCount" :: Maybe (Int), "FailedEntries" :: Maybe (PutTargetsResultEntryList) }
 ```
 
 ##### Instances
@@ -1243,7 +1243,7 @@ Constructs PutTargetsResponse from required parameters
 #### `newPutTargetsResponse'`
 
 ``` purescript
-newPutTargetsResponse' :: ({ "FailedEntryCount" :: NullOrUndefined (Int), "FailedEntries" :: NullOrUndefined (PutTargetsResultEntryList) } -> { "FailedEntryCount" :: NullOrUndefined (Int), "FailedEntries" :: NullOrUndefined (PutTargetsResultEntryList) }) -> PutTargetsResponse
+newPutTargetsResponse' :: ({ "FailedEntryCount" :: Maybe (Int), "FailedEntries" :: Maybe (PutTargetsResultEntryList) } -> { "FailedEntryCount" :: Maybe (Int), "FailedEntries" :: Maybe (PutTargetsResultEntryList) }) -> PutTargetsResponse
 ```
 
 Constructs PutTargetsResponse's fields from required parameters
@@ -1252,7 +1252,7 @@ Constructs PutTargetsResponse's fields from required parameters
 
 ``` purescript
 newtype PutTargetsResultEntry
-  = PutTargetsResultEntry { "TargetId" :: NullOrUndefined (TargetId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }
+  = PutTargetsResultEntry { "TargetId" :: Maybe (TargetId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }
 ```
 
 <p>Represents a target that failed to be added to a rule.</p>
@@ -1277,7 +1277,7 @@ Constructs PutTargetsResultEntry from required parameters
 #### `newPutTargetsResultEntry'`
 
 ``` purescript
-newPutTargetsResultEntry' :: ({ "TargetId" :: NullOrUndefined (TargetId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> { "TargetId" :: NullOrUndefined (TargetId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }) -> PutTargetsResultEntry
+newPutTargetsResultEntry' :: ({ "TargetId" :: Maybe (TargetId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) } -> { "TargetId" :: Maybe (TargetId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }) -> PutTargetsResultEntry
 ```
 
 Constructs PutTargetsResultEntry's fields from required parameters
@@ -1366,7 +1366,7 @@ Constructs RemoveTargetsRequest's fields from required parameters
 
 ``` purescript
 newtype RemoveTargetsResponse
-  = RemoveTargetsResponse { "FailedEntryCount" :: NullOrUndefined (Int), "FailedEntries" :: NullOrUndefined (RemoveTargetsResultEntryList) }
+  = RemoveTargetsResponse { "FailedEntryCount" :: Maybe (Int), "FailedEntries" :: Maybe (RemoveTargetsResultEntryList) }
 ```
 
 ##### Instances
@@ -1389,7 +1389,7 @@ Constructs RemoveTargetsResponse from required parameters
 #### `newRemoveTargetsResponse'`
 
 ``` purescript
-newRemoveTargetsResponse' :: ({ "FailedEntryCount" :: NullOrUndefined (Int), "FailedEntries" :: NullOrUndefined (RemoveTargetsResultEntryList) } -> { "FailedEntryCount" :: NullOrUndefined (Int), "FailedEntries" :: NullOrUndefined (RemoveTargetsResultEntryList) }) -> RemoveTargetsResponse
+newRemoveTargetsResponse' :: ({ "FailedEntryCount" :: Maybe (Int), "FailedEntries" :: Maybe (RemoveTargetsResultEntryList) } -> { "FailedEntryCount" :: Maybe (Int), "FailedEntries" :: Maybe (RemoveTargetsResultEntryList) }) -> RemoveTargetsResponse
 ```
 
 Constructs RemoveTargetsResponse's fields from required parameters
@@ -1398,7 +1398,7 @@ Constructs RemoveTargetsResponse's fields from required parameters
 
 ``` purescript
 newtype RemoveTargetsResultEntry
-  = RemoveTargetsResultEntry { "TargetId" :: NullOrUndefined (TargetId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }
+  = RemoveTargetsResultEntry { "TargetId" :: Maybe (TargetId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }
 ```
 
 <p>Represents a target that failed to be removed from a rule.</p>
@@ -1423,7 +1423,7 @@ Constructs RemoveTargetsResultEntry from required parameters
 #### `newRemoveTargetsResultEntry'`
 
 ``` purescript
-newRemoveTargetsResultEntry' :: ({ "TargetId" :: NullOrUndefined (TargetId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> { "TargetId" :: NullOrUndefined (TargetId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }) -> RemoveTargetsResultEntry
+newRemoveTargetsResultEntry' :: ({ "TargetId" :: Maybe (TargetId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) } -> { "TargetId" :: Maybe (TargetId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }) -> RemoveTargetsResultEntry
 ```
 
 Constructs RemoveTargetsResultEntry's fields from required parameters
@@ -1482,7 +1482,7 @@ Encode RoleArn
 
 ``` purescript
 newtype Rule
-  = Rule { "Name" :: NullOrUndefined (RuleName), "Arn" :: NullOrUndefined (RuleArn), "EventPattern" :: NullOrUndefined (EventPattern), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "RoleArn" :: NullOrUndefined (RoleArn) }
+  = Rule { "Name" :: Maybe (RuleName), "Arn" :: Maybe (RuleArn), "EventPattern" :: Maybe (EventPattern), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "ScheduleExpression" :: Maybe (ScheduleExpression), "RoleArn" :: Maybe (RoleArn) }
 ```
 
 <p>Contains information about a rule in Amazon CloudWatch Events.</p>
@@ -1507,7 +1507,7 @@ Constructs Rule from required parameters
 #### `newRule'`
 
 ``` purescript
-newRule' :: ({ "Name" :: NullOrUndefined (RuleName), "Arn" :: NullOrUndefined (RuleArn), "EventPattern" :: NullOrUndefined (EventPattern), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "RoleArn" :: NullOrUndefined (RoleArn) } -> { "Name" :: NullOrUndefined (RuleName), "Arn" :: NullOrUndefined (RuleArn), "EventPattern" :: NullOrUndefined (EventPattern), "State" :: NullOrUndefined (RuleState), "Description" :: NullOrUndefined (RuleDescription), "ScheduleExpression" :: NullOrUndefined (ScheduleExpression), "RoleArn" :: NullOrUndefined (RoleArn) }) -> Rule
+newRule' :: ({ "Name" :: Maybe (RuleName), "Arn" :: Maybe (RuleArn), "EventPattern" :: Maybe (EventPattern), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "ScheduleExpression" :: Maybe (ScheduleExpression), "RoleArn" :: Maybe (RoleArn) } -> { "Name" :: Maybe (RuleName), "Arn" :: Maybe (RuleArn), "EventPattern" :: Maybe (EventPattern), "State" :: Maybe (RuleState), "Description" :: Maybe (RuleDescription), "ScheduleExpression" :: Maybe (ScheduleExpression), "RoleArn" :: Maybe (RoleArn) }) -> Rule
 ```
 
 Constructs Rule's fields from required parameters
@@ -1776,7 +1776,7 @@ Encode StatementId
 
 ``` purescript
 newtype Target
-  = Target { "Id" :: TargetId, "Arn" :: TargetArn, "RoleArn" :: NullOrUndefined (RoleArn), "Input" :: NullOrUndefined (TargetInput), "InputPath" :: NullOrUndefined (TargetInputPath), "InputTransformer" :: NullOrUndefined (InputTransformer), "KinesisParameters" :: NullOrUndefined (KinesisParameters), "RunCommandParameters" :: NullOrUndefined (RunCommandParameters), "EcsParameters" :: NullOrUndefined (EcsParameters), "BatchParameters" :: NullOrUndefined (BatchParameters) }
+  = Target { "Id" :: TargetId, "Arn" :: TargetArn, "RoleArn" :: Maybe (RoleArn), "Input" :: Maybe (TargetInput), "InputPath" :: Maybe (TargetInputPath), "InputTransformer" :: Maybe (InputTransformer), "KinesisParameters" :: Maybe (KinesisParameters), "RunCommandParameters" :: Maybe (RunCommandParameters), "EcsParameters" :: Maybe (EcsParameters), "BatchParameters" :: Maybe (BatchParameters) }
 ```
 
 <p>Targets are the resources to be invoked when a rule is triggered. Target types include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, Run Command, and built-in targets.</p>
@@ -1801,7 +1801,7 @@ Constructs Target from required parameters
 #### `newTarget'`
 
 ``` purescript
-newTarget' :: TargetArn -> TargetId -> ({ "Id" :: TargetId, "Arn" :: TargetArn, "RoleArn" :: NullOrUndefined (RoleArn), "Input" :: NullOrUndefined (TargetInput), "InputPath" :: NullOrUndefined (TargetInputPath), "InputTransformer" :: NullOrUndefined (InputTransformer), "KinesisParameters" :: NullOrUndefined (KinesisParameters), "RunCommandParameters" :: NullOrUndefined (RunCommandParameters), "EcsParameters" :: NullOrUndefined (EcsParameters), "BatchParameters" :: NullOrUndefined (BatchParameters) } -> { "Id" :: TargetId, "Arn" :: TargetArn, "RoleArn" :: NullOrUndefined (RoleArn), "Input" :: NullOrUndefined (TargetInput), "InputPath" :: NullOrUndefined (TargetInputPath), "InputTransformer" :: NullOrUndefined (InputTransformer), "KinesisParameters" :: NullOrUndefined (KinesisParameters), "RunCommandParameters" :: NullOrUndefined (RunCommandParameters), "EcsParameters" :: NullOrUndefined (EcsParameters), "BatchParameters" :: NullOrUndefined (BatchParameters) }) -> Target
+newTarget' :: TargetArn -> TargetId -> ({ "Id" :: TargetId, "Arn" :: TargetArn, "RoleArn" :: Maybe (RoleArn), "Input" :: Maybe (TargetInput), "InputPath" :: Maybe (TargetInputPath), "InputTransformer" :: Maybe (InputTransformer), "KinesisParameters" :: Maybe (KinesisParameters), "RunCommandParameters" :: Maybe (RunCommandParameters), "EcsParameters" :: Maybe (EcsParameters), "BatchParameters" :: Maybe (BatchParameters) } -> { "Id" :: TargetId, "Arn" :: TargetArn, "RoleArn" :: Maybe (RoleArn), "Input" :: Maybe (TargetInput), "InputPath" :: Maybe (TargetInputPath), "InputTransformer" :: Maybe (InputTransformer), "KinesisParameters" :: Maybe (KinesisParameters), "RunCommandParameters" :: Maybe (RunCommandParameters), "EcsParameters" :: Maybe (EcsParameters), "BatchParameters" :: Maybe (BatchParameters) }) -> Target
 ```
 
 Constructs Target's fields from required parameters
@@ -1954,7 +1954,7 @@ Constructs TestEventPatternRequest's fields from required parameters
 
 ``` purescript
 newtype TestEventPatternResponse
-  = TestEventPatternResponse { "Result" :: NullOrUndefined (Boolean) }
+  = TestEventPatternResponse { "Result" :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -1977,7 +1977,7 @@ Constructs TestEventPatternResponse from required parameters
 #### `newTestEventPatternResponse'`
 
 ``` purescript
-newTestEventPatternResponse' :: ({ "Result" :: NullOrUndefined (Boolean) } -> { "Result" :: NullOrUndefined (Boolean) }) -> TestEventPatternResponse
+newTestEventPatternResponse' :: ({ "Result" :: Maybe (Boolean) } -> { "Result" :: Maybe (Boolean) }) -> TestEventPatternResponse
 ```
 
 Constructs TestEventPatternResponse's fields from required parameters

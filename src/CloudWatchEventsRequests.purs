@@ -13,7 +13,7 @@ import AWS.CloudWatchEvents.Types as CloudWatchEventsTypes
 
 
 -- | <p>Deletes the specified rule.</p> <p>You must remove all targets from a rule using <a>RemoveTargets</a> before you can delete the rule.</p> <p>When you delete a rule, incoming events might continue to match to the deleted rule. Please allow a short period of time for changes to take effect.</p>
-deleteRule :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.DeleteRuleRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteRule :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.DeleteRuleRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteRule (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteRule"
 
@@ -31,13 +31,13 @@ describeRule (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl me
 
 
 -- | <p>Disables the specified rule. A disabled rule won't match any events, and won't self-trigger if it has a schedule expression.</p> <p>When you disable a rule, incoming events might continue to match to the disabled rule. Please allow a short period of time for changes to take effect.</p>
-disableRule :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.DisableRuleRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+disableRule :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.DisableRuleRequest -> Aff (exception :: EXCEPTION | eff) Unit
 disableRule (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "disableRule"
 
 
 -- | <p>Enables the specified rule. If the rule does not exist, the operation fails.</p> <p>When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.</p>
-enableRule :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.EnableRuleRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+enableRule :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.EnableRuleRequest -> Aff (exception :: EXCEPTION | eff) Unit
 enableRule (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "enableRule"
 
@@ -67,7 +67,7 @@ putEvents (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl metho
 
 
 -- | <p>Running <code>PutPermission</code> permits the specified AWS account to put events to your account's default <i>event bus</i>. CloudWatch Events rules in your account are triggered by these events arriving to your default event bus. </p> <p>For another account to send events to your account, that external account must have a CloudWatch Events rule with your account's default event bus as a target.</p> <p>To enable multiple AWS accounts to put events to your default event bus, run <code>PutPermission</code> once for each of these accounts.</p> <p>The permission policy on the default event bus cannot exceed 10KB in size.</p>
-putPermission :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.PutPermissionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+putPermission :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.PutPermissionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 putPermission (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "putPermission"
 
@@ -85,7 +85,7 @@ putTargets (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl meth
 
 
 -- | <p>Revokes the permission of another AWS account to be able to put events to your default event bus. Specify the account to revoke by the <code>StatementId</code> value that you associated with the account when you granted it permission with <code>PutPermission</code>. You can find the <code>StatementId</code> by using <a>DescribeEventBus</a>.</p>
-removePermission :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.RemovePermissionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+removePermission :: forall eff. CloudWatchEvents.Service -> CloudWatchEventsTypes.RemovePermissionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 removePermission (CloudWatchEvents.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "removePermission"
 

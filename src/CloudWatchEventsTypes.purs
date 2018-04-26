@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -38,7 +37,7 @@ instance encodeArn :: Encode Arn where encode = genericEncode options
 
 -- | <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.</p>
 newtype BatchArrayProperties = BatchArrayProperties 
-  { "Size" :: NullOrUndefined (Int)
+  { "Size" :: Maybe (Int)
   }
 derive instance newtypeBatchArrayProperties :: Newtype BatchArrayProperties _
 derive instance repGenericBatchArrayProperties :: Generic BatchArrayProperties _
@@ -48,12 +47,12 @@ instance encodeBatchArrayProperties :: Encode BatchArrayProperties where encode 
 
 -- | Constructs BatchArrayProperties from required parameters
 newBatchArrayProperties :: BatchArrayProperties
-newBatchArrayProperties  = BatchArrayProperties { "Size": (NullOrUndefined Nothing) }
+newBatchArrayProperties  = BatchArrayProperties { "Size": Nothing }
 
 -- | Constructs BatchArrayProperties's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchArrayProperties' :: ( { "Size" :: NullOrUndefined (Int) } -> {"Size" :: NullOrUndefined (Int) } ) -> BatchArrayProperties
-newBatchArrayProperties'  customize = (BatchArrayProperties <<< customize) { "Size": (NullOrUndefined Nothing) }
+newBatchArrayProperties' :: ( { "Size" :: Maybe (Int) } -> {"Size" :: Maybe (Int) } ) -> BatchArrayProperties
+newBatchArrayProperties'  customize = (BatchArrayProperties <<< customize) { "Size": Nothing }
 
 
 
@@ -61,8 +60,8 @@ newBatchArrayProperties'  customize = (BatchArrayProperties <<< customize) { "Si
 newtype BatchParameters = BatchParameters 
   { "JobDefinition" :: (String)
   , "JobName" :: (String)
-  , "ArrayProperties" :: NullOrUndefined (BatchArrayProperties)
-  , "RetryStrategy" :: NullOrUndefined (BatchRetryStrategy)
+  , "ArrayProperties" :: Maybe (BatchArrayProperties)
+  , "RetryStrategy" :: Maybe (BatchRetryStrategy)
   }
 derive instance newtypeBatchParameters :: Newtype BatchParameters _
 derive instance repGenericBatchParameters :: Generic BatchParameters _
@@ -72,18 +71,18 @@ instance encodeBatchParameters :: Encode BatchParameters where encode = genericE
 
 -- | Constructs BatchParameters from required parameters
 newBatchParameters :: String -> String -> BatchParameters
-newBatchParameters _JobDefinition _JobName = BatchParameters { "JobDefinition": _JobDefinition, "JobName": _JobName, "ArrayProperties": (NullOrUndefined Nothing), "RetryStrategy": (NullOrUndefined Nothing) }
+newBatchParameters _JobDefinition _JobName = BatchParameters { "JobDefinition": _JobDefinition, "JobName": _JobName, "ArrayProperties": Nothing, "RetryStrategy": Nothing }
 
 -- | Constructs BatchParameters's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchParameters' :: String -> String -> ( { "JobDefinition" :: (String) , "JobName" :: (String) , "ArrayProperties" :: NullOrUndefined (BatchArrayProperties) , "RetryStrategy" :: NullOrUndefined (BatchRetryStrategy) } -> {"JobDefinition" :: (String) , "JobName" :: (String) , "ArrayProperties" :: NullOrUndefined (BatchArrayProperties) , "RetryStrategy" :: NullOrUndefined (BatchRetryStrategy) } ) -> BatchParameters
-newBatchParameters' _JobDefinition _JobName customize = (BatchParameters <<< customize) { "JobDefinition": _JobDefinition, "JobName": _JobName, "ArrayProperties": (NullOrUndefined Nothing), "RetryStrategy": (NullOrUndefined Nothing) }
+newBatchParameters' :: String -> String -> ( { "JobDefinition" :: (String) , "JobName" :: (String) , "ArrayProperties" :: Maybe (BatchArrayProperties) , "RetryStrategy" :: Maybe (BatchRetryStrategy) } -> {"JobDefinition" :: (String) , "JobName" :: (String) , "ArrayProperties" :: Maybe (BatchArrayProperties) , "RetryStrategy" :: Maybe (BatchRetryStrategy) } ) -> BatchParameters
+newBatchParameters' _JobDefinition _JobName customize = (BatchParameters <<< customize) { "JobDefinition": _JobDefinition, "JobName": _JobName, "ArrayProperties": Nothing, "RetryStrategy": Nothing }
 
 
 
 -- | <p>The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.</p>
 newtype BatchRetryStrategy = BatchRetryStrategy 
-  { "Attempts" :: NullOrUndefined (Int)
+  { "Attempts" :: Maybe (Int)
   }
 derive instance newtypeBatchRetryStrategy :: Newtype BatchRetryStrategy _
 derive instance repGenericBatchRetryStrategy :: Generic BatchRetryStrategy _
@@ -93,12 +92,12 @@ instance encodeBatchRetryStrategy :: Encode BatchRetryStrategy where encode = ge
 
 -- | Constructs BatchRetryStrategy from required parameters
 newBatchRetryStrategy :: BatchRetryStrategy
-newBatchRetryStrategy  = BatchRetryStrategy { "Attempts": (NullOrUndefined Nothing) }
+newBatchRetryStrategy  = BatchRetryStrategy { "Attempts": Nothing }
 
 -- | Constructs BatchRetryStrategy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchRetryStrategy' :: ( { "Attempts" :: NullOrUndefined (Int) } -> {"Attempts" :: NullOrUndefined (Int) } ) -> BatchRetryStrategy
-newBatchRetryStrategy'  customize = (BatchRetryStrategy <<< customize) { "Attempts": (NullOrUndefined Nothing) }
+newBatchRetryStrategy' :: ( { "Attempts" :: Maybe (Int) } -> {"Attempts" :: Maybe (Int) } ) -> BatchRetryStrategy
+newBatchRetryStrategy'  customize = (BatchRetryStrategy <<< customize) { "Attempts": Nothing }
 
 
 
@@ -142,9 +141,9 @@ instance encodeDescribeEventBusRequest :: Encode DescribeEventBusRequest where e
 
 
 newtype DescribeEventBusResponse = DescribeEventBusResponse 
-  { "Name" :: NullOrUndefined (String)
-  , "Arn" :: NullOrUndefined (String)
-  , "Policy" :: NullOrUndefined (String)
+  { "Name" :: Maybe (String)
+  , "Arn" :: Maybe (String)
+  , "Policy" :: Maybe (String)
   }
 derive instance newtypeDescribeEventBusResponse :: Newtype DescribeEventBusResponse _
 derive instance repGenericDescribeEventBusResponse :: Generic DescribeEventBusResponse _
@@ -154,12 +153,12 @@ instance encodeDescribeEventBusResponse :: Encode DescribeEventBusResponse where
 
 -- | Constructs DescribeEventBusResponse from required parameters
 newDescribeEventBusResponse :: DescribeEventBusResponse
-newDescribeEventBusResponse  = DescribeEventBusResponse { "Arn": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing) }
+newDescribeEventBusResponse  = DescribeEventBusResponse { "Arn": Nothing, "Name": Nothing, "Policy": Nothing }
 
 -- | Constructs DescribeEventBusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventBusResponse' :: ( { "Name" :: NullOrUndefined (String) , "Arn" :: NullOrUndefined (String) , "Policy" :: NullOrUndefined (String) } -> {"Name" :: NullOrUndefined (String) , "Arn" :: NullOrUndefined (String) , "Policy" :: NullOrUndefined (String) } ) -> DescribeEventBusResponse
-newDescribeEventBusResponse'  customize = (DescribeEventBusResponse <<< customize) { "Arn": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing) }
+newDescribeEventBusResponse' :: ( { "Name" :: Maybe (String) , "Arn" :: Maybe (String) , "Policy" :: Maybe (String) } -> {"Name" :: Maybe (String) , "Arn" :: Maybe (String) , "Policy" :: Maybe (String) } ) -> DescribeEventBusResponse
+newDescribeEventBusResponse'  customize = (DescribeEventBusResponse <<< customize) { "Arn": Nothing, "Name": Nothing, "Policy": Nothing }
 
 
 
@@ -184,13 +183,13 @@ newDescribeRuleRequest' _Name customize = (DescribeRuleRequest <<< customize) { 
 
 
 newtype DescribeRuleResponse = DescribeRuleResponse 
-  { "Name" :: NullOrUndefined (RuleName)
-  , "Arn" :: NullOrUndefined (RuleArn)
-  , "EventPattern" :: NullOrUndefined (EventPattern)
-  , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression)
-  , "State" :: NullOrUndefined (RuleState)
-  , "Description" :: NullOrUndefined (RuleDescription)
-  , "RoleArn" :: NullOrUndefined (RoleArn)
+  { "Name" :: Maybe (RuleName)
+  , "Arn" :: Maybe (RuleArn)
+  , "EventPattern" :: Maybe (EventPattern)
+  , "ScheduleExpression" :: Maybe (ScheduleExpression)
+  , "State" :: Maybe (RuleState)
+  , "Description" :: Maybe (RuleDescription)
+  , "RoleArn" :: Maybe (RoleArn)
   }
 derive instance newtypeDescribeRuleResponse :: Newtype DescribeRuleResponse _
 derive instance repGenericDescribeRuleResponse :: Generic DescribeRuleResponse _
@@ -200,12 +199,12 @@ instance encodeDescribeRuleResponse :: Encode DescribeRuleResponse where encode 
 
 -- | Constructs DescribeRuleResponse from required parameters
 newDescribeRuleResponse :: DescribeRuleResponse
-newDescribeRuleResponse  = DescribeRuleResponse { "Arn": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "EventPattern": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "ScheduleExpression": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newDescribeRuleResponse  = DescribeRuleResponse { "Arn": Nothing, "Description": Nothing, "EventPattern": Nothing, "Name": Nothing, "RoleArn": Nothing, "ScheduleExpression": Nothing, "State": Nothing }
 
 -- | Constructs DescribeRuleResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeRuleResponse' :: ( { "Name" :: NullOrUndefined (RuleName) , "Arn" :: NullOrUndefined (RuleArn) , "EventPattern" :: NullOrUndefined (EventPattern) , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression) , "State" :: NullOrUndefined (RuleState) , "Description" :: NullOrUndefined (RuleDescription) , "RoleArn" :: NullOrUndefined (RoleArn) } -> {"Name" :: NullOrUndefined (RuleName) , "Arn" :: NullOrUndefined (RuleArn) , "EventPattern" :: NullOrUndefined (EventPattern) , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression) , "State" :: NullOrUndefined (RuleState) , "Description" :: NullOrUndefined (RuleDescription) , "RoleArn" :: NullOrUndefined (RoleArn) } ) -> DescribeRuleResponse
-newDescribeRuleResponse'  customize = (DescribeRuleResponse <<< customize) { "Arn": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "EventPattern": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "ScheduleExpression": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newDescribeRuleResponse' :: ( { "Name" :: Maybe (RuleName) , "Arn" :: Maybe (RuleArn) , "EventPattern" :: Maybe (EventPattern) , "ScheduleExpression" :: Maybe (ScheduleExpression) , "State" :: Maybe (RuleState) , "Description" :: Maybe (RuleDescription) , "RoleArn" :: Maybe (RoleArn) } -> {"Name" :: Maybe (RuleName) , "Arn" :: Maybe (RuleArn) , "EventPattern" :: Maybe (EventPattern) , "ScheduleExpression" :: Maybe (ScheduleExpression) , "State" :: Maybe (RuleState) , "Description" :: Maybe (RuleDescription) , "RoleArn" :: Maybe (RoleArn) } ) -> DescribeRuleResponse
+newDescribeRuleResponse'  customize = (DescribeRuleResponse <<< customize) { "Arn": Nothing, "Description": Nothing, "EventPattern": Nothing, "Name": Nothing, "RoleArn": Nothing, "ScheduleExpression": Nothing, "State": Nothing }
 
 
 
@@ -232,7 +231,7 @@ newDisableRuleRequest' _Name customize = (DisableRuleRequest <<< customize) { "N
 -- | <p>The custom parameters to be used when the target is an Amazon ECS cluster.</p>
 newtype EcsParameters = EcsParameters 
   { "TaskDefinitionArn" :: (Arn)
-  , "TaskCount" :: NullOrUndefined (LimitMin1)
+  , "TaskCount" :: Maybe (LimitMin1)
   }
 derive instance newtypeEcsParameters :: Newtype EcsParameters _
 derive instance repGenericEcsParameters :: Generic EcsParameters _
@@ -242,12 +241,12 @@ instance encodeEcsParameters :: Encode EcsParameters where encode = genericEncod
 
 -- | Constructs EcsParameters from required parameters
 newEcsParameters :: Arn -> EcsParameters
-newEcsParameters _TaskDefinitionArn = EcsParameters { "TaskDefinitionArn": _TaskDefinitionArn, "TaskCount": (NullOrUndefined Nothing) }
+newEcsParameters _TaskDefinitionArn = EcsParameters { "TaskDefinitionArn": _TaskDefinitionArn, "TaskCount": Nothing }
 
 -- | Constructs EcsParameters's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEcsParameters' :: Arn -> ( { "TaskDefinitionArn" :: (Arn) , "TaskCount" :: NullOrUndefined (LimitMin1) } -> {"TaskDefinitionArn" :: (Arn) , "TaskCount" :: NullOrUndefined (LimitMin1) } ) -> EcsParameters
-newEcsParameters' _TaskDefinitionArn customize = (EcsParameters <<< customize) { "TaskDefinitionArn": _TaskDefinitionArn, "TaskCount": (NullOrUndefined Nothing) }
+newEcsParameters' :: Arn -> ( { "TaskDefinitionArn" :: (Arn) , "TaskCount" :: Maybe (LimitMin1) } -> {"TaskDefinitionArn" :: (Arn) , "TaskCount" :: Maybe (LimitMin1) } ) -> EcsParameters
+newEcsParameters' _TaskDefinitionArn customize = (EcsParameters <<< customize) { "TaskDefinitionArn": _TaskDefinitionArn, "TaskCount": Nothing }
 
 
 
@@ -336,7 +335,7 @@ instance encodeEventTime :: Encode EventTime where encode = genericEncode option
 
 -- | <p>Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.</p>
 newtype InputTransformer = InputTransformer 
-  { "InputPathsMap" :: NullOrUndefined (TransformerPaths)
+  { "InputPathsMap" :: Maybe (TransformerPaths)
   , "InputTemplate" :: (TransformerInput)
   }
 derive instance newtypeInputTransformer :: Newtype InputTransformer _
@@ -347,12 +346,12 @@ instance encodeInputTransformer :: Encode InputTransformer where encode = generi
 
 -- | Constructs InputTransformer from required parameters
 newInputTransformer :: TransformerInput -> InputTransformer
-newInputTransformer _InputTemplate = InputTransformer { "InputTemplate": _InputTemplate, "InputPathsMap": (NullOrUndefined Nothing) }
+newInputTransformer _InputTemplate = InputTransformer { "InputTemplate": _InputTemplate, "InputPathsMap": Nothing }
 
 -- | Constructs InputTransformer's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInputTransformer' :: TransformerInput -> ( { "InputPathsMap" :: NullOrUndefined (TransformerPaths) , "InputTemplate" :: (TransformerInput) } -> {"InputPathsMap" :: NullOrUndefined (TransformerPaths) , "InputTemplate" :: (TransformerInput) } ) -> InputTransformer
-newInputTransformer' _InputTemplate customize = (InputTransformer <<< customize) { "InputTemplate": _InputTemplate, "InputPathsMap": (NullOrUndefined Nothing) }
+newInputTransformer' :: TransformerInput -> ( { "InputPathsMap" :: Maybe (TransformerPaths) , "InputTemplate" :: (TransformerInput) } -> {"InputPathsMap" :: Maybe (TransformerPaths) , "InputTemplate" :: (TransformerInput) } ) -> InputTransformer
+newInputTransformer' _InputTemplate customize = (InputTransformer <<< customize) { "InputTemplate": _InputTemplate, "InputPathsMap": Nothing }
 
 
 
@@ -436,8 +435,8 @@ instance encodeLimitMin1 :: Encode LimitMin1 where encode = genericEncode option
 
 newtype ListRuleNamesByTargetRequest = ListRuleNamesByTargetRequest 
   { "TargetArn" :: (TargetArn)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "Limit" :: NullOrUndefined (LimitMax100)
+  , "NextToken" :: Maybe (NextToken)
+  , "Limit" :: Maybe (LimitMax100)
   }
 derive instance newtypeListRuleNamesByTargetRequest :: Newtype ListRuleNamesByTargetRequest _
 derive instance repGenericListRuleNamesByTargetRequest :: Generic ListRuleNamesByTargetRequest _
@@ -447,18 +446,18 @@ instance encodeListRuleNamesByTargetRequest :: Encode ListRuleNamesByTargetReque
 
 -- | Constructs ListRuleNamesByTargetRequest from required parameters
 newListRuleNamesByTargetRequest :: TargetArn -> ListRuleNamesByTargetRequest
-newListRuleNamesByTargetRequest _TargetArn = ListRuleNamesByTargetRequest { "TargetArn": _TargetArn, "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListRuleNamesByTargetRequest _TargetArn = ListRuleNamesByTargetRequest { "TargetArn": _TargetArn, "Limit": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListRuleNamesByTargetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListRuleNamesByTargetRequest' :: TargetArn -> ( { "TargetArn" :: (TargetArn) , "NextToken" :: NullOrUndefined (NextToken) , "Limit" :: NullOrUndefined (LimitMax100) } -> {"TargetArn" :: (TargetArn) , "NextToken" :: NullOrUndefined (NextToken) , "Limit" :: NullOrUndefined (LimitMax100) } ) -> ListRuleNamesByTargetRequest
-newListRuleNamesByTargetRequest' _TargetArn customize = (ListRuleNamesByTargetRequest <<< customize) { "TargetArn": _TargetArn, "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListRuleNamesByTargetRequest' :: TargetArn -> ( { "TargetArn" :: (TargetArn) , "NextToken" :: Maybe (NextToken) , "Limit" :: Maybe (LimitMax100) } -> {"TargetArn" :: (TargetArn) , "NextToken" :: Maybe (NextToken) , "Limit" :: Maybe (LimitMax100) } ) -> ListRuleNamesByTargetRequest
+newListRuleNamesByTargetRequest' _TargetArn customize = (ListRuleNamesByTargetRequest <<< customize) { "TargetArn": _TargetArn, "Limit": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse 
-  { "RuleNames" :: NullOrUndefined (RuleNameList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "RuleNames" :: Maybe (RuleNameList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListRuleNamesByTargetResponse :: Newtype ListRuleNamesByTargetResponse _
 derive instance repGenericListRuleNamesByTargetResponse :: Generic ListRuleNamesByTargetResponse _
@@ -468,19 +467,19 @@ instance encodeListRuleNamesByTargetResponse :: Encode ListRuleNamesByTargetResp
 
 -- | Constructs ListRuleNamesByTargetResponse from required parameters
 newListRuleNamesByTargetResponse :: ListRuleNamesByTargetResponse
-newListRuleNamesByTargetResponse  = ListRuleNamesByTargetResponse { "NextToken": (NullOrUndefined Nothing), "RuleNames": (NullOrUndefined Nothing) }
+newListRuleNamesByTargetResponse  = ListRuleNamesByTargetResponse { "NextToken": Nothing, "RuleNames": Nothing }
 
 -- | Constructs ListRuleNamesByTargetResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListRuleNamesByTargetResponse' :: ( { "RuleNames" :: NullOrUndefined (RuleNameList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"RuleNames" :: NullOrUndefined (RuleNameList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListRuleNamesByTargetResponse
-newListRuleNamesByTargetResponse'  customize = (ListRuleNamesByTargetResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "RuleNames": (NullOrUndefined Nothing) }
+newListRuleNamesByTargetResponse' :: ( { "RuleNames" :: Maybe (RuleNameList) , "NextToken" :: Maybe (NextToken) } -> {"RuleNames" :: Maybe (RuleNameList) , "NextToken" :: Maybe (NextToken) } ) -> ListRuleNamesByTargetResponse
+newListRuleNamesByTargetResponse'  customize = (ListRuleNamesByTargetResponse <<< customize) { "NextToken": Nothing, "RuleNames": Nothing }
 
 
 
 newtype ListRulesRequest = ListRulesRequest 
-  { "NamePrefix" :: NullOrUndefined (RuleName)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "Limit" :: NullOrUndefined (LimitMax100)
+  { "NamePrefix" :: Maybe (RuleName)
+  , "NextToken" :: Maybe (NextToken)
+  , "Limit" :: Maybe (LimitMax100)
   }
 derive instance newtypeListRulesRequest :: Newtype ListRulesRequest _
 derive instance repGenericListRulesRequest :: Generic ListRulesRequest _
@@ -490,18 +489,18 @@ instance encodeListRulesRequest :: Encode ListRulesRequest where encode = generi
 
 -- | Constructs ListRulesRequest from required parameters
 newListRulesRequest :: ListRulesRequest
-newListRulesRequest  = ListRulesRequest { "Limit": (NullOrUndefined Nothing), "NamePrefix": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListRulesRequest  = ListRulesRequest { "Limit": Nothing, "NamePrefix": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListRulesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListRulesRequest' :: ( { "NamePrefix" :: NullOrUndefined (RuleName) , "NextToken" :: NullOrUndefined (NextToken) , "Limit" :: NullOrUndefined (LimitMax100) } -> {"NamePrefix" :: NullOrUndefined (RuleName) , "NextToken" :: NullOrUndefined (NextToken) , "Limit" :: NullOrUndefined (LimitMax100) } ) -> ListRulesRequest
-newListRulesRequest'  customize = (ListRulesRequest <<< customize) { "Limit": (NullOrUndefined Nothing), "NamePrefix": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListRulesRequest' :: ( { "NamePrefix" :: Maybe (RuleName) , "NextToken" :: Maybe (NextToken) , "Limit" :: Maybe (LimitMax100) } -> {"NamePrefix" :: Maybe (RuleName) , "NextToken" :: Maybe (NextToken) , "Limit" :: Maybe (LimitMax100) } ) -> ListRulesRequest
+newListRulesRequest'  customize = (ListRulesRequest <<< customize) { "Limit": Nothing, "NamePrefix": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListRulesResponse = ListRulesResponse 
-  { "Rules" :: NullOrUndefined (RuleResponseList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Rules" :: Maybe (RuleResponseList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListRulesResponse :: Newtype ListRulesResponse _
 derive instance repGenericListRulesResponse :: Generic ListRulesResponse _
@@ -511,19 +510,19 @@ instance encodeListRulesResponse :: Encode ListRulesResponse where encode = gene
 
 -- | Constructs ListRulesResponse from required parameters
 newListRulesResponse :: ListRulesResponse
-newListRulesResponse  = ListRulesResponse { "NextToken": (NullOrUndefined Nothing), "Rules": (NullOrUndefined Nothing) }
+newListRulesResponse  = ListRulesResponse { "NextToken": Nothing, "Rules": Nothing }
 
 -- | Constructs ListRulesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListRulesResponse' :: ( { "Rules" :: NullOrUndefined (RuleResponseList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Rules" :: NullOrUndefined (RuleResponseList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListRulesResponse
-newListRulesResponse'  customize = (ListRulesResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "Rules": (NullOrUndefined Nothing) }
+newListRulesResponse' :: ( { "Rules" :: Maybe (RuleResponseList) , "NextToken" :: Maybe (NextToken) } -> {"Rules" :: Maybe (RuleResponseList) , "NextToken" :: Maybe (NextToken) } ) -> ListRulesResponse
+newListRulesResponse'  customize = (ListRulesResponse <<< customize) { "NextToken": Nothing, "Rules": Nothing }
 
 
 
 newtype ListTargetsByRuleRequest = ListTargetsByRuleRequest 
   { "Rule" :: (RuleName)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "Limit" :: NullOrUndefined (LimitMax100)
+  , "NextToken" :: Maybe (NextToken)
+  , "Limit" :: Maybe (LimitMax100)
   }
 derive instance newtypeListTargetsByRuleRequest :: Newtype ListTargetsByRuleRequest _
 derive instance repGenericListTargetsByRuleRequest :: Generic ListTargetsByRuleRequest _
@@ -533,18 +532,18 @@ instance encodeListTargetsByRuleRequest :: Encode ListTargetsByRuleRequest where
 
 -- | Constructs ListTargetsByRuleRequest from required parameters
 newListTargetsByRuleRequest :: RuleName -> ListTargetsByRuleRequest
-newListTargetsByRuleRequest _Rule = ListTargetsByRuleRequest { "Rule": _Rule, "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListTargetsByRuleRequest _Rule = ListTargetsByRuleRequest { "Rule": _Rule, "Limit": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListTargetsByRuleRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTargetsByRuleRequest' :: RuleName -> ( { "Rule" :: (RuleName) , "NextToken" :: NullOrUndefined (NextToken) , "Limit" :: NullOrUndefined (LimitMax100) } -> {"Rule" :: (RuleName) , "NextToken" :: NullOrUndefined (NextToken) , "Limit" :: NullOrUndefined (LimitMax100) } ) -> ListTargetsByRuleRequest
-newListTargetsByRuleRequest' _Rule customize = (ListTargetsByRuleRequest <<< customize) { "Rule": _Rule, "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListTargetsByRuleRequest' :: RuleName -> ( { "Rule" :: (RuleName) , "NextToken" :: Maybe (NextToken) , "Limit" :: Maybe (LimitMax100) } -> {"Rule" :: (RuleName) , "NextToken" :: Maybe (NextToken) , "Limit" :: Maybe (LimitMax100) } ) -> ListTargetsByRuleRequest
+newListTargetsByRuleRequest' _Rule customize = (ListTargetsByRuleRequest <<< customize) { "Rule": _Rule, "Limit": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListTargetsByRuleResponse = ListTargetsByRuleResponse 
-  { "Targets" :: NullOrUndefined (TargetList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Targets" :: Maybe (TargetList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListTargetsByRuleResponse :: Newtype ListTargetsByRuleResponse _
 derive instance repGenericListTargetsByRuleResponse :: Generic ListTargetsByRuleResponse _
@@ -554,12 +553,12 @@ instance encodeListTargetsByRuleResponse :: Encode ListTargetsByRuleResponse whe
 
 -- | Constructs ListTargetsByRuleResponse from required parameters
 newListTargetsByRuleResponse :: ListTargetsByRuleResponse
-newListTargetsByRuleResponse  = ListTargetsByRuleResponse { "NextToken": (NullOrUndefined Nothing), "Targets": (NullOrUndefined Nothing) }
+newListTargetsByRuleResponse  = ListTargetsByRuleResponse { "NextToken": Nothing, "Targets": Nothing }
 
 -- | Constructs ListTargetsByRuleResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTargetsByRuleResponse' :: ( { "Targets" :: NullOrUndefined (TargetList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Targets" :: NullOrUndefined (TargetList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListTargetsByRuleResponse
-newListTargetsByRuleResponse'  customize = (ListTargetsByRuleResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "Targets": (NullOrUndefined Nothing) }
+newListTargetsByRuleResponse' :: ( { "Targets" :: Maybe (TargetList) , "NextToken" :: Maybe (NextToken) } -> {"Targets" :: Maybe (TargetList) , "NextToken" :: Maybe (NextToken) } ) -> ListTargetsByRuleResponse
+newListTargetsByRuleResponse'  customize = (ListTargetsByRuleResponse <<< customize) { "NextToken": Nothing, "Targets": Nothing }
 
 
 
@@ -613,11 +612,11 @@ newPutEventsRequest' _Entries customize = (PutEventsRequest <<< customize) { "En
 
 -- | <p>Represents an event to be submitted.</p>
 newtype PutEventsRequestEntry = PutEventsRequestEntry 
-  { "Time" :: NullOrUndefined (EventTime)
-  , "Source" :: NullOrUndefined (String)
-  , "Resources" :: NullOrUndefined (EventResourceList)
-  , "DetailType" :: NullOrUndefined (String)
-  , "Detail" :: NullOrUndefined (String)
+  { "Time" :: Maybe (EventTime)
+  , "Source" :: Maybe (String)
+  , "Resources" :: Maybe (EventResourceList)
+  , "DetailType" :: Maybe (String)
+  , "Detail" :: Maybe (String)
   }
 derive instance newtypePutEventsRequestEntry :: Newtype PutEventsRequestEntry _
 derive instance repGenericPutEventsRequestEntry :: Generic PutEventsRequestEntry _
@@ -627,12 +626,12 @@ instance encodePutEventsRequestEntry :: Encode PutEventsRequestEntry where encod
 
 -- | Constructs PutEventsRequestEntry from required parameters
 newPutEventsRequestEntry :: PutEventsRequestEntry
-newPutEventsRequestEntry  = PutEventsRequestEntry { "Detail": (NullOrUndefined Nothing), "DetailType": (NullOrUndefined Nothing), "Resources": (NullOrUndefined Nothing), "Source": (NullOrUndefined Nothing), "Time": (NullOrUndefined Nothing) }
+newPutEventsRequestEntry  = PutEventsRequestEntry { "Detail": Nothing, "DetailType": Nothing, "Resources": Nothing, "Source": Nothing, "Time": Nothing }
 
 -- | Constructs PutEventsRequestEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutEventsRequestEntry' :: ( { "Time" :: NullOrUndefined (EventTime) , "Source" :: NullOrUndefined (String) , "Resources" :: NullOrUndefined (EventResourceList) , "DetailType" :: NullOrUndefined (String) , "Detail" :: NullOrUndefined (String) } -> {"Time" :: NullOrUndefined (EventTime) , "Source" :: NullOrUndefined (String) , "Resources" :: NullOrUndefined (EventResourceList) , "DetailType" :: NullOrUndefined (String) , "Detail" :: NullOrUndefined (String) } ) -> PutEventsRequestEntry
-newPutEventsRequestEntry'  customize = (PutEventsRequestEntry <<< customize) { "Detail": (NullOrUndefined Nothing), "DetailType": (NullOrUndefined Nothing), "Resources": (NullOrUndefined Nothing), "Source": (NullOrUndefined Nothing), "Time": (NullOrUndefined Nothing) }
+newPutEventsRequestEntry' :: ( { "Time" :: Maybe (EventTime) , "Source" :: Maybe (String) , "Resources" :: Maybe (EventResourceList) , "DetailType" :: Maybe (String) , "Detail" :: Maybe (String) } -> {"Time" :: Maybe (EventTime) , "Source" :: Maybe (String) , "Resources" :: Maybe (EventResourceList) , "DetailType" :: Maybe (String) , "Detail" :: Maybe (String) } ) -> PutEventsRequestEntry
+newPutEventsRequestEntry'  customize = (PutEventsRequestEntry <<< customize) { "Detail": Nothing, "DetailType": Nothing, "Resources": Nothing, "Source": Nothing, "Time": Nothing }
 
 
 
@@ -646,8 +645,8 @@ instance encodePutEventsRequestEntryList :: Encode PutEventsRequestEntryList whe
 
 
 newtype PutEventsResponse = PutEventsResponse 
-  { "FailedEntryCount" :: NullOrUndefined (Int)
-  , "Entries" :: NullOrUndefined (PutEventsResultEntryList)
+  { "FailedEntryCount" :: Maybe (Int)
+  , "Entries" :: Maybe (PutEventsResultEntryList)
   }
 derive instance newtypePutEventsResponse :: Newtype PutEventsResponse _
 derive instance repGenericPutEventsResponse :: Generic PutEventsResponse _
@@ -657,20 +656,20 @@ instance encodePutEventsResponse :: Encode PutEventsResponse where encode = gene
 
 -- | Constructs PutEventsResponse from required parameters
 newPutEventsResponse :: PutEventsResponse
-newPutEventsResponse  = PutEventsResponse { "Entries": (NullOrUndefined Nothing), "FailedEntryCount": (NullOrUndefined Nothing) }
+newPutEventsResponse  = PutEventsResponse { "Entries": Nothing, "FailedEntryCount": Nothing }
 
 -- | Constructs PutEventsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutEventsResponse' :: ( { "FailedEntryCount" :: NullOrUndefined (Int) , "Entries" :: NullOrUndefined (PutEventsResultEntryList) } -> {"FailedEntryCount" :: NullOrUndefined (Int) , "Entries" :: NullOrUndefined (PutEventsResultEntryList) } ) -> PutEventsResponse
-newPutEventsResponse'  customize = (PutEventsResponse <<< customize) { "Entries": (NullOrUndefined Nothing), "FailedEntryCount": (NullOrUndefined Nothing) }
+newPutEventsResponse' :: ( { "FailedEntryCount" :: Maybe (Int) , "Entries" :: Maybe (PutEventsResultEntryList) } -> {"FailedEntryCount" :: Maybe (Int) , "Entries" :: Maybe (PutEventsResultEntryList) } ) -> PutEventsResponse
+newPutEventsResponse'  customize = (PutEventsResponse <<< customize) { "Entries": Nothing, "FailedEntryCount": Nothing }
 
 
 
 -- | <p>Represents an event that failed to be submitted.</p>
 newtype PutEventsResultEntry = PutEventsResultEntry 
-  { "EventId" :: NullOrUndefined (EventId)
-  , "ErrorCode" :: NullOrUndefined (ErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (ErrorMessage)
+  { "EventId" :: Maybe (EventId)
+  , "ErrorCode" :: Maybe (ErrorCode)
+  , "ErrorMessage" :: Maybe (ErrorMessage)
   }
 derive instance newtypePutEventsResultEntry :: Newtype PutEventsResultEntry _
 derive instance repGenericPutEventsResultEntry :: Generic PutEventsResultEntry _
@@ -680,12 +679,12 @@ instance encodePutEventsResultEntry :: Encode PutEventsResultEntry where encode 
 
 -- | Constructs PutEventsResultEntry from required parameters
 newPutEventsResultEntry :: PutEventsResultEntry
-newPutEventsResultEntry  = PutEventsResultEntry { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "EventId": (NullOrUndefined Nothing) }
+newPutEventsResultEntry  = PutEventsResultEntry { "ErrorCode": Nothing, "ErrorMessage": Nothing, "EventId": Nothing }
 
 -- | Constructs PutEventsResultEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutEventsResultEntry' :: ( { "EventId" :: NullOrUndefined (EventId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> {"EventId" :: NullOrUndefined (EventId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } ) -> PutEventsResultEntry
-newPutEventsResultEntry'  customize = (PutEventsResultEntry <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "EventId": (NullOrUndefined Nothing) }
+newPutEventsResultEntry' :: ( { "EventId" :: Maybe (EventId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } -> {"EventId" :: Maybe (EventId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } ) -> PutEventsResultEntry
+newPutEventsResultEntry'  customize = (PutEventsResultEntry <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "EventId": Nothing }
 
 
 
@@ -722,11 +721,11 @@ newPutPermissionRequest' _Action _Principal _StatementId customize = (PutPermiss
 
 newtype PutRuleRequest = PutRuleRequest 
   { "Name" :: (RuleName)
-  , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression)
-  , "EventPattern" :: NullOrUndefined (EventPattern)
-  , "State" :: NullOrUndefined (RuleState)
-  , "Description" :: NullOrUndefined (RuleDescription)
-  , "RoleArn" :: NullOrUndefined (RoleArn)
+  , "ScheduleExpression" :: Maybe (ScheduleExpression)
+  , "EventPattern" :: Maybe (EventPattern)
+  , "State" :: Maybe (RuleState)
+  , "Description" :: Maybe (RuleDescription)
+  , "RoleArn" :: Maybe (RoleArn)
   }
 derive instance newtypePutRuleRequest :: Newtype PutRuleRequest _
 derive instance repGenericPutRuleRequest :: Generic PutRuleRequest _
@@ -736,17 +735,17 @@ instance encodePutRuleRequest :: Encode PutRuleRequest where encode = genericEnc
 
 -- | Constructs PutRuleRequest from required parameters
 newPutRuleRequest :: RuleName -> PutRuleRequest
-newPutRuleRequest _Name = PutRuleRequest { "Name": _Name, "Description": (NullOrUndefined Nothing), "EventPattern": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "ScheduleExpression": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newPutRuleRequest _Name = PutRuleRequest { "Name": _Name, "Description": Nothing, "EventPattern": Nothing, "RoleArn": Nothing, "ScheduleExpression": Nothing, "State": Nothing }
 
 -- | Constructs PutRuleRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRuleRequest' :: RuleName -> ( { "Name" :: (RuleName) , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression) , "EventPattern" :: NullOrUndefined (EventPattern) , "State" :: NullOrUndefined (RuleState) , "Description" :: NullOrUndefined (RuleDescription) , "RoleArn" :: NullOrUndefined (RoleArn) } -> {"Name" :: (RuleName) , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression) , "EventPattern" :: NullOrUndefined (EventPattern) , "State" :: NullOrUndefined (RuleState) , "Description" :: NullOrUndefined (RuleDescription) , "RoleArn" :: NullOrUndefined (RoleArn) } ) -> PutRuleRequest
-newPutRuleRequest' _Name customize = (PutRuleRequest <<< customize) { "Name": _Name, "Description": (NullOrUndefined Nothing), "EventPattern": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "ScheduleExpression": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newPutRuleRequest' :: RuleName -> ( { "Name" :: (RuleName) , "ScheduleExpression" :: Maybe (ScheduleExpression) , "EventPattern" :: Maybe (EventPattern) , "State" :: Maybe (RuleState) , "Description" :: Maybe (RuleDescription) , "RoleArn" :: Maybe (RoleArn) } -> {"Name" :: (RuleName) , "ScheduleExpression" :: Maybe (ScheduleExpression) , "EventPattern" :: Maybe (EventPattern) , "State" :: Maybe (RuleState) , "Description" :: Maybe (RuleDescription) , "RoleArn" :: Maybe (RoleArn) } ) -> PutRuleRequest
+newPutRuleRequest' _Name customize = (PutRuleRequest <<< customize) { "Name": _Name, "Description": Nothing, "EventPattern": Nothing, "RoleArn": Nothing, "ScheduleExpression": Nothing, "State": Nothing }
 
 
 
 newtype PutRuleResponse = PutRuleResponse 
-  { "RuleArn" :: NullOrUndefined (RuleArn)
+  { "RuleArn" :: Maybe (RuleArn)
   }
 derive instance newtypePutRuleResponse :: Newtype PutRuleResponse _
 derive instance repGenericPutRuleResponse :: Generic PutRuleResponse _
@@ -756,12 +755,12 @@ instance encodePutRuleResponse :: Encode PutRuleResponse where encode = genericE
 
 -- | Constructs PutRuleResponse from required parameters
 newPutRuleResponse :: PutRuleResponse
-newPutRuleResponse  = PutRuleResponse { "RuleArn": (NullOrUndefined Nothing) }
+newPutRuleResponse  = PutRuleResponse { "RuleArn": Nothing }
 
 -- | Constructs PutRuleResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRuleResponse' :: ( { "RuleArn" :: NullOrUndefined (RuleArn) } -> {"RuleArn" :: NullOrUndefined (RuleArn) } ) -> PutRuleResponse
-newPutRuleResponse'  customize = (PutRuleResponse <<< customize) { "RuleArn": (NullOrUndefined Nothing) }
+newPutRuleResponse' :: ( { "RuleArn" :: Maybe (RuleArn) } -> {"RuleArn" :: Maybe (RuleArn) } ) -> PutRuleResponse
+newPutRuleResponse'  customize = (PutRuleResponse <<< customize) { "RuleArn": Nothing }
 
 
 
@@ -787,8 +786,8 @@ newPutTargetsRequest' _Rule _Targets customize = (PutTargetsRequest <<< customiz
 
 
 newtype PutTargetsResponse = PutTargetsResponse 
-  { "FailedEntryCount" :: NullOrUndefined (Int)
-  , "FailedEntries" :: NullOrUndefined (PutTargetsResultEntryList)
+  { "FailedEntryCount" :: Maybe (Int)
+  , "FailedEntries" :: Maybe (PutTargetsResultEntryList)
   }
 derive instance newtypePutTargetsResponse :: Newtype PutTargetsResponse _
 derive instance repGenericPutTargetsResponse :: Generic PutTargetsResponse _
@@ -798,20 +797,20 @@ instance encodePutTargetsResponse :: Encode PutTargetsResponse where encode = ge
 
 -- | Constructs PutTargetsResponse from required parameters
 newPutTargetsResponse :: PutTargetsResponse
-newPutTargetsResponse  = PutTargetsResponse { "FailedEntries": (NullOrUndefined Nothing), "FailedEntryCount": (NullOrUndefined Nothing) }
+newPutTargetsResponse  = PutTargetsResponse { "FailedEntries": Nothing, "FailedEntryCount": Nothing }
 
 -- | Constructs PutTargetsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutTargetsResponse' :: ( { "FailedEntryCount" :: NullOrUndefined (Int) , "FailedEntries" :: NullOrUndefined (PutTargetsResultEntryList) } -> {"FailedEntryCount" :: NullOrUndefined (Int) , "FailedEntries" :: NullOrUndefined (PutTargetsResultEntryList) } ) -> PutTargetsResponse
-newPutTargetsResponse'  customize = (PutTargetsResponse <<< customize) { "FailedEntries": (NullOrUndefined Nothing), "FailedEntryCount": (NullOrUndefined Nothing) }
+newPutTargetsResponse' :: ( { "FailedEntryCount" :: Maybe (Int) , "FailedEntries" :: Maybe (PutTargetsResultEntryList) } -> {"FailedEntryCount" :: Maybe (Int) , "FailedEntries" :: Maybe (PutTargetsResultEntryList) } ) -> PutTargetsResponse
+newPutTargetsResponse'  customize = (PutTargetsResponse <<< customize) { "FailedEntries": Nothing, "FailedEntryCount": Nothing }
 
 
 
 -- | <p>Represents a target that failed to be added to a rule.</p>
 newtype PutTargetsResultEntry = PutTargetsResultEntry 
-  { "TargetId" :: NullOrUndefined (TargetId)
-  , "ErrorCode" :: NullOrUndefined (ErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (ErrorMessage)
+  { "TargetId" :: Maybe (TargetId)
+  , "ErrorCode" :: Maybe (ErrorCode)
+  , "ErrorMessage" :: Maybe (ErrorMessage)
   }
 derive instance newtypePutTargetsResultEntry :: Newtype PutTargetsResultEntry _
 derive instance repGenericPutTargetsResultEntry :: Generic PutTargetsResultEntry _
@@ -821,12 +820,12 @@ instance encodePutTargetsResultEntry :: Encode PutTargetsResultEntry where encod
 
 -- | Constructs PutTargetsResultEntry from required parameters
 newPutTargetsResultEntry :: PutTargetsResultEntry
-newPutTargetsResultEntry  = PutTargetsResultEntry { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "TargetId": (NullOrUndefined Nothing) }
+newPutTargetsResultEntry  = PutTargetsResultEntry { "ErrorCode": Nothing, "ErrorMessage": Nothing, "TargetId": Nothing }
 
 -- | Constructs PutTargetsResultEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutTargetsResultEntry' :: ( { "TargetId" :: NullOrUndefined (TargetId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> {"TargetId" :: NullOrUndefined (TargetId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } ) -> PutTargetsResultEntry
-newPutTargetsResultEntry'  customize = (PutTargetsResultEntry <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "TargetId": (NullOrUndefined Nothing) }
+newPutTargetsResultEntry' :: ( { "TargetId" :: Maybe (TargetId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } -> {"TargetId" :: Maybe (TargetId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } ) -> PutTargetsResultEntry
+newPutTargetsResultEntry'  customize = (PutTargetsResultEntry <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "TargetId": Nothing }
 
 
 
@@ -881,8 +880,8 @@ newRemoveTargetsRequest' _Ids _Rule customize = (RemoveTargetsRequest <<< custom
 
 
 newtype RemoveTargetsResponse = RemoveTargetsResponse 
-  { "FailedEntryCount" :: NullOrUndefined (Int)
-  , "FailedEntries" :: NullOrUndefined (RemoveTargetsResultEntryList)
+  { "FailedEntryCount" :: Maybe (Int)
+  , "FailedEntries" :: Maybe (RemoveTargetsResultEntryList)
   }
 derive instance newtypeRemoveTargetsResponse :: Newtype RemoveTargetsResponse _
 derive instance repGenericRemoveTargetsResponse :: Generic RemoveTargetsResponse _
@@ -892,20 +891,20 @@ instance encodeRemoveTargetsResponse :: Encode RemoveTargetsResponse where encod
 
 -- | Constructs RemoveTargetsResponse from required parameters
 newRemoveTargetsResponse :: RemoveTargetsResponse
-newRemoveTargetsResponse  = RemoveTargetsResponse { "FailedEntries": (NullOrUndefined Nothing), "FailedEntryCount": (NullOrUndefined Nothing) }
+newRemoveTargetsResponse  = RemoveTargetsResponse { "FailedEntries": Nothing, "FailedEntryCount": Nothing }
 
 -- | Constructs RemoveTargetsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRemoveTargetsResponse' :: ( { "FailedEntryCount" :: NullOrUndefined (Int) , "FailedEntries" :: NullOrUndefined (RemoveTargetsResultEntryList) } -> {"FailedEntryCount" :: NullOrUndefined (Int) , "FailedEntries" :: NullOrUndefined (RemoveTargetsResultEntryList) } ) -> RemoveTargetsResponse
-newRemoveTargetsResponse'  customize = (RemoveTargetsResponse <<< customize) { "FailedEntries": (NullOrUndefined Nothing), "FailedEntryCount": (NullOrUndefined Nothing) }
+newRemoveTargetsResponse' :: ( { "FailedEntryCount" :: Maybe (Int) , "FailedEntries" :: Maybe (RemoveTargetsResultEntryList) } -> {"FailedEntryCount" :: Maybe (Int) , "FailedEntries" :: Maybe (RemoveTargetsResultEntryList) } ) -> RemoveTargetsResponse
+newRemoveTargetsResponse'  customize = (RemoveTargetsResponse <<< customize) { "FailedEntries": Nothing, "FailedEntryCount": Nothing }
 
 
 
 -- | <p>Represents a target that failed to be removed from a rule.</p>
 newtype RemoveTargetsResultEntry = RemoveTargetsResultEntry 
-  { "TargetId" :: NullOrUndefined (TargetId)
-  , "ErrorCode" :: NullOrUndefined (ErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (ErrorMessage)
+  { "TargetId" :: Maybe (TargetId)
+  , "ErrorCode" :: Maybe (ErrorCode)
+  , "ErrorMessage" :: Maybe (ErrorMessage)
   }
 derive instance newtypeRemoveTargetsResultEntry :: Newtype RemoveTargetsResultEntry _
 derive instance repGenericRemoveTargetsResultEntry :: Generic RemoveTargetsResultEntry _
@@ -915,12 +914,12 @@ instance encodeRemoveTargetsResultEntry :: Encode RemoveTargetsResultEntry where
 
 -- | Constructs RemoveTargetsResultEntry from required parameters
 newRemoveTargetsResultEntry :: RemoveTargetsResultEntry
-newRemoveTargetsResultEntry  = RemoveTargetsResultEntry { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "TargetId": (NullOrUndefined Nothing) }
+newRemoveTargetsResultEntry  = RemoveTargetsResultEntry { "ErrorCode": Nothing, "ErrorMessage": Nothing, "TargetId": Nothing }
 
 -- | Constructs RemoveTargetsResultEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRemoveTargetsResultEntry' :: ( { "TargetId" :: NullOrUndefined (TargetId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> {"TargetId" :: NullOrUndefined (TargetId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } ) -> RemoveTargetsResultEntry
-newRemoveTargetsResultEntry'  customize = (RemoveTargetsResultEntry <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "TargetId": (NullOrUndefined Nothing) }
+newRemoveTargetsResultEntry' :: ( { "TargetId" :: Maybe (TargetId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } -> {"TargetId" :: Maybe (TargetId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } ) -> RemoveTargetsResultEntry
+newRemoveTargetsResultEntry'  customize = (RemoveTargetsResultEntry <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "TargetId": Nothing }
 
 
 
@@ -954,13 +953,13 @@ instance encodeRoleArn :: Encode RoleArn where encode = genericEncode options
 
 -- | <p>Contains information about a rule in Amazon CloudWatch Events.</p>
 newtype Rule = Rule 
-  { "Name" :: NullOrUndefined (RuleName)
-  , "Arn" :: NullOrUndefined (RuleArn)
-  , "EventPattern" :: NullOrUndefined (EventPattern)
-  , "State" :: NullOrUndefined (RuleState)
-  , "Description" :: NullOrUndefined (RuleDescription)
-  , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression)
-  , "RoleArn" :: NullOrUndefined (RoleArn)
+  { "Name" :: Maybe (RuleName)
+  , "Arn" :: Maybe (RuleArn)
+  , "EventPattern" :: Maybe (EventPattern)
+  , "State" :: Maybe (RuleState)
+  , "Description" :: Maybe (RuleDescription)
+  , "ScheduleExpression" :: Maybe (ScheduleExpression)
+  , "RoleArn" :: Maybe (RoleArn)
   }
 derive instance newtypeRule :: Newtype Rule _
 derive instance repGenericRule :: Generic Rule _
@@ -970,12 +969,12 @@ instance encodeRule :: Encode Rule where encode = genericEncode options
 
 -- | Constructs Rule from required parameters
 newRule :: Rule
-newRule  = Rule { "Arn": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "EventPattern": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "ScheduleExpression": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newRule  = Rule { "Arn": Nothing, "Description": Nothing, "EventPattern": Nothing, "Name": Nothing, "RoleArn": Nothing, "ScheduleExpression": Nothing, "State": Nothing }
 
 -- | Constructs Rule's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRule' :: ( { "Name" :: NullOrUndefined (RuleName) , "Arn" :: NullOrUndefined (RuleArn) , "EventPattern" :: NullOrUndefined (EventPattern) , "State" :: NullOrUndefined (RuleState) , "Description" :: NullOrUndefined (RuleDescription) , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression) , "RoleArn" :: NullOrUndefined (RoleArn) } -> {"Name" :: NullOrUndefined (RuleName) , "Arn" :: NullOrUndefined (RuleArn) , "EventPattern" :: NullOrUndefined (EventPattern) , "State" :: NullOrUndefined (RuleState) , "Description" :: NullOrUndefined (RuleDescription) , "ScheduleExpression" :: NullOrUndefined (ScheduleExpression) , "RoleArn" :: NullOrUndefined (RoleArn) } ) -> Rule
-newRule'  customize = (Rule <<< customize) { "Arn": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "EventPattern": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "ScheduleExpression": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing) }
+newRule' :: ( { "Name" :: Maybe (RuleName) , "Arn" :: Maybe (RuleArn) , "EventPattern" :: Maybe (EventPattern) , "State" :: Maybe (RuleState) , "Description" :: Maybe (RuleDescription) , "ScheduleExpression" :: Maybe (ScheduleExpression) , "RoleArn" :: Maybe (RoleArn) } -> {"Name" :: Maybe (RuleName) , "Arn" :: Maybe (RuleArn) , "EventPattern" :: Maybe (EventPattern) , "State" :: Maybe (RuleState) , "Description" :: Maybe (RuleDescription) , "ScheduleExpression" :: Maybe (ScheduleExpression) , "RoleArn" :: Maybe (RoleArn) } ) -> Rule
+newRule'  customize = (Rule <<< customize) { "Arn": Nothing, "Description": Nothing, "EventPattern": Nothing, "Name": Nothing, "RoleArn": Nothing, "ScheduleExpression": Nothing, "State": Nothing }
 
 
 
@@ -1134,14 +1133,14 @@ instance encodeStatementId :: Encode StatementId where encode = genericEncode op
 newtype Target = Target 
   { "Id" :: (TargetId)
   , "Arn" :: (TargetArn)
-  , "RoleArn" :: NullOrUndefined (RoleArn)
-  , "Input" :: NullOrUndefined (TargetInput)
-  , "InputPath" :: NullOrUndefined (TargetInputPath)
-  , "InputTransformer" :: NullOrUndefined (InputTransformer)
-  , "KinesisParameters" :: NullOrUndefined (KinesisParameters)
-  , "RunCommandParameters" :: NullOrUndefined (RunCommandParameters)
-  , "EcsParameters" :: NullOrUndefined (EcsParameters)
-  , "BatchParameters" :: NullOrUndefined (BatchParameters)
+  , "RoleArn" :: Maybe (RoleArn)
+  , "Input" :: Maybe (TargetInput)
+  , "InputPath" :: Maybe (TargetInputPath)
+  , "InputTransformer" :: Maybe (InputTransformer)
+  , "KinesisParameters" :: Maybe (KinesisParameters)
+  , "RunCommandParameters" :: Maybe (RunCommandParameters)
+  , "EcsParameters" :: Maybe (EcsParameters)
+  , "BatchParameters" :: Maybe (BatchParameters)
   }
 derive instance newtypeTarget :: Newtype Target _
 derive instance repGenericTarget :: Generic Target _
@@ -1151,12 +1150,12 @@ instance encodeTarget :: Encode Target where encode = genericEncode options
 
 -- | Constructs Target from required parameters
 newTarget :: TargetArn -> TargetId -> Target
-newTarget _Arn _Id = Target { "Arn": _Arn, "Id": _Id, "BatchParameters": (NullOrUndefined Nothing), "EcsParameters": (NullOrUndefined Nothing), "Input": (NullOrUndefined Nothing), "InputPath": (NullOrUndefined Nothing), "InputTransformer": (NullOrUndefined Nothing), "KinesisParameters": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "RunCommandParameters": (NullOrUndefined Nothing) }
+newTarget _Arn _Id = Target { "Arn": _Arn, "Id": _Id, "BatchParameters": Nothing, "EcsParameters": Nothing, "Input": Nothing, "InputPath": Nothing, "InputTransformer": Nothing, "KinesisParameters": Nothing, "RoleArn": Nothing, "RunCommandParameters": Nothing }
 
 -- | Constructs Target's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTarget' :: TargetArn -> TargetId -> ( { "Id" :: (TargetId) , "Arn" :: (TargetArn) , "RoleArn" :: NullOrUndefined (RoleArn) , "Input" :: NullOrUndefined (TargetInput) , "InputPath" :: NullOrUndefined (TargetInputPath) , "InputTransformer" :: NullOrUndefined (InputTransformer) , "KinesisParameters" :: NullOrUndefined (KinesisParameters) , "RunCommandParameters" :: NullOrUndefined (RunCommandParameters) , "EcsParameters" :: NullOrUndefined (EcsParameters) , "BatchParameters" :: NullOrUndefined (BatchParameters) } -> {"Id" :: (TargetId) , "Arn" :: (TargetArn) , "RoleArn" :: NullOrUndefined (RoleArn) , "Input" :: NullOrUndefined (TargetInput) , "InputPath" :: NullOrUndefined (TargetInputPath) , "InputTransformer" :: NullOrUndefined (InputTransformer) , "KinesisParameters" :: NullOrUndefined (KinesisParameters) , "RunCommandParameters" :: NullOrUndefined (RunCommandParameters) , "EcsParameters" :: NullOrUndefined (EcsParameters) , "BatchParameters" :: NullOrUndefined (BatchParameters) } ) -> Target
-newTarget' _Arn _Id customize = (Target <<< customize) { "Arn": _Arn, "Id": _Id, "BatchParameters": (NullOrUndefined Nothing), "EcsParameters": (NullOrUndefined Nothing), "Input": (NullOrUndefined Nothing), "InputPath": (NullOrUndefined Nothing), "InputTransformer": (NullOrUndefined Nothing), "KinesisParameters": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing), "RunCommandParameters": (NullOrUndefined Nothing) }
+newTarget' :: TargetArn -> TargetId -> ( { "Id" :: (TargetId) , "Arn" :: (TargetArn) , "RoleArn" :: Maybe (RoleArn) , "Input" :: Maybe (TargetInput) , "InputPath" :: Maybe (TargetInputPath) , "InputTransformer" :: Maybe (InputTransformer) , "KinesisParameters" :: Maybe (KinesisParameters) , "RunCommandParameters" :: Maybe (RunCommandParameters) , "EcsParameters" :: Maybe (EcsParameters) , "BatchParameters" :: Maybe (BatchParameters) } -> {"Id" :: (TargetId) , "Arn" :: (TargetArn) , "RoleArn" :: Maybe (RoleArn) , "Input" :: Maybe (TargetInput) , "InputPath" :: Maybe (TargetInputPath) , "InputTransformer" :: Maybe (InputTransformer) , "KinesisParameters" :: Maybe (KinesisParameters) , "RunCommandParameters" :: Maybe (RunCommandParameters) , "EcsParameters" :: Maybe (EcsParameters) , "BatchParameters" :: Maybe (BatchParameters) } ) -> Target
+newTarget' _Arn _Id customize = (Target <<< customize) { "Arn": _Arn, "Id": _Id, "BatchParameters": Nothing, "EcsParameters": Nothing, "Input": Nothing, "InputPath": Nothing, "InputTransformer": Nothing, "KinesisParameters": Nothing, "RoleArn": Nothing, "RunCommandParameters": Nothing }
 
 
 
@@ -1245,7 +1244,7 @@ newTestEventPatternRequest' _Event _EventPattern customize = (TestEventPatternRe
 
 
 newtype TestEventPatternResponse = TestEventPatternResponse 
-  { "Result" :: NullOrUndefined (Boolean)
+  { "Result" :: Maybe (Boolean)
   }
 derive instance newtypeTestEventPatternResponse :: Newtype TestEventPatternResponse _
 derive instance repGenericTestEventPatternResponse :: Generic TestEventPatternResponse _
@@ -1255,12 +1254,12 @@ instance encodeTestEventPatternResponse :: Encode TestEventPatternResponse where
 
 -- | Constructs TestEventPatternResponse from required parameters
 newTestEventPatternResponse :: TestEventPatternResponse
-newTestEventPatternResponse  = TestEventPatternResponse { "Result": (NullOrUndefined Nothing) }
+newTestEventPatternResponse  = TestEventPatternResponse { "Result": Nothing }
 
 -- | Constructs TestEventPatternResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestEventPatternResponse' :: ( { "Result" :: NullOrUndefined (Boolean) } -> {"Result" :: NullOrUndefined (Boolean) } ) -> TestEventPatternResponse
-newTestEventPatternResponse'  customize = (TestEventPatternResponse <<< customize) { "Result": (NullOrUndefined Nothing) }
+newTestEventPatternResponse' :: ( { "Result" :: Maybe (Boolean) } -> {"Result" :: Maybe (Boolean) } ) -> TestEventPatternResponse
+newTestEventPatternResponse'  customize = (TestEventPatternResponse <<< customize) { "Result": Nothing }
 
 
 
